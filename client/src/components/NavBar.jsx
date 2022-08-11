@@ -44,14 +44,6 @@ const NavBar = () => {
                   Home
                 </NavLink>
               </li>
-              {/* <li className="nav-item">
-                <a className="nav-link" href="/">
-                  User Contacts Management
-                </a>
-              </li> */}
-              <li style={{ paddingLeft: "300px", fontSize: "20px" }}>
-                User Contacts Management
-              </li>
             </ul>
             <form className="d-flex" role="search">
               <input

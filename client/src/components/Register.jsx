@@ -1,28 +1,26 @@
-import React from "react";
-import { useState } from "react";
-// import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
 
 const Register = () => {
-  const [inputVal, setInputVal] = useState({
-    name: "",
-    email: "",
-    age: "",
-    mobile: "",
-    work: "",
-    address: "",
-    description: "",
-  });
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
-  const setData = (e) => {
-    console.log(e.target.value);
-    const { name, value } = e.target;
-
-    setInputVal((preval) => {
-      return {
-        ...preval,
-        [name]: value,
-      };
-    });
+  const handleFirstName = (e) => {
+    const value = e.target.value;
+    setFirstName(value);
+  };
+  const handleLastName = (e) => {
+    const value = e.target.value;
+    setLastName(value);
+  };
+  const handleEmail = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+  };
+  const handlePhone = (e) => {
+    const value = e.target.value;
+    setPhone(value);
   };
 
   return (
@@ -30,17 +28,48 @@ const Register = () => {
       {/* <NavLink to="/">Home</NavLink> */}
       <form className="mt-4">
         <div className="row">
-          <div className="mb-3 col-lg-6 col-md-6 col-12">
+          {/* <div className="mb-3 col-lg-6 col-md-6 col-12">
             <label htmlFor="exampleInputEmail1" className="form-label">
-              Name
+              Image
             </label>
             <input
               type="text"
-              value={inputVal.name}
+              value={inputVal.image}
               onChange={setData}
               className="form-control"
               id="exampleInputEmail1"
-              name="name"
+              name="image"
+            />
+          </div> */}
+          <div className="mb-3 col-lg-6 col-md-6 col-12">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              First Name
+            </label>
+            <input
+              type="text"
+              value={firstName}
+              onChange={handleFirstName}
+              name="firstName"
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="John"
+              required
+            />
+          </div>
+          <div className="mb-3 col-lg-6 col-md-6 col-12">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              Last Name
+            </label>
+            <input
+              type="text"
+              value={lastName}
+              onChange={handleLastName}
+              name="lastName"
+              className="form-control"
+              id="exampleInputEmail1"
+              placeholder="Doe"
+              required
             />
           </div>
           <div className="mb-3 col-lg-6 col-md-6 col-12">
@@ -49,82 +78,35 @@ const Register = () => {
             </label>
             <input
               type="email"
-              value={inputVal.email}
-              onChange={setData}
+              value={email}
+              onChange={handleEmail}
+              name="email"
               className="form-control"
               id="exampleInputPassword1"
-              name="email"
               aria-describedby="emailHelp"
+              placeholder="j.doe@example.com"
+              required
             />
             <div id="emailHelp" className="form-text">
               We'll never share your email with anyone else.
             </div>
           </div>
-          <div className="mb-3 col-lg-6 col-md-6 col-12">
-            <label htmlFor="exampleInputPassword1" className="form-label">
-              Age
-            </label>
-            <input
-              type="text"
-              value={inputVal.age}
-              onChange={setData}
-              className="form-control"
-              id="exampleInputPassword1"
-              name="age"
-            />
-          </div>
+
           <div className="mb-3 col-lg-6 col-md-6 col-12">
             <label htmlFor="exampleInputPassword1" className="form-label">
               Phone Number
             </label>
             <input
-              type="text"
-              value={inputVal.mobile}
-              onChange={setData}
+              type="tel"
+              value={phone}
+              onChange={handlePhone}
+              name="phone"
               className="form-control"
               id="exampleInputPassword1"
-              name="mobile"
+              placeholder="5181234567"
+              maxLength={10}
+              required
             />
-          </div>
-          <div className="mb-3 col-lg-6 col-md-6 col-12">
-            <label htmlFor="exampleInputPassword1" className="form-label">
-              Work
-            </label>
-            <input
-              type="text"
-              value={inputVal.work}
-              onChange={setData}
-              className="form-control"
-              id="exampleInputPassword1"
-              name="work"
-            />
-          </div>
-          <div className="mb-3 col-lg-6 col-md-6 col-12">
-            <label htmlFor="exampleInputPassword1" className="form-label">
-              Address
-            </label>
-            <input
-              type="text"
-              value={inputVal.address}
-              onChange={setData}
-              className="form-control"
-              id="exampleInputPassword1"
-              name="address"
-            />
-          </div>
-          <div className="mb-3 col-lg-12 col-md-12 col-12">
-            <label htmlFor="exampleInputPassword1" className="form-label">
-              Description
-            </label>
-            <textarea
-              name="description"
-              value={inputVal.description}
-              onChange={setData}
-              className="form-control"
-              id="exampleInputPassword1"
-              cols="30"
-              rows="5"
-            ></textarea>
           </div>
 
           <button type="submit" className="btn btn-primary">

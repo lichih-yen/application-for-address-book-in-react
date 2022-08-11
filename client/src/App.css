@@ -6,13 +6,12 @@
   overflow: auto;
 }
 
-.header-title {
-  padding-left: 80px;
-  color: grey;
+.head-title {
+  color: darkslategrey;
+  text-align: center;
+  margin-top: 10px;
 }
 
-/* .nav-item {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-} */
+.content p {
+  font-weight: 600;
+}
