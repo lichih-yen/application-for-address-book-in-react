@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Axios from "axios";
+// import { adddata } from "./context/ContextProvider";
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
@@ -6,41 +8,48 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
+  // const { udata, setUdata } = useContext(adddata);
+
   const handleFirstName = (e) => {
     const value = e.target.value;
     setFirstName(value);
   };
+
   const handleLastName = (e) => {
     const value = e.target.value;
     setLastName(value);
   };
+
   const handleEmail = (e) => {
     const value = e.target.value;
     setEmail(value);
   };
+
   const handlePhone = (e) => {
     const value = e.target.value;
     setPhone(value);
   };
 
+  const addUser = async (e) => {
+    e.preventDefault();
+
+    const newUser = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phone: phone,
+    };
+
+    Axios.post("/register", newUser).then(() => {
+      console.log("Success");
+      alert("Success");
+    });
+  };
+
   return (
     <div className="container">
-      {/* <NavLink to="/">Home</NavLink> */}
       <form className="mt-4">
         <div className="row">
-          {/* <div className="mb-3 col-lg-6 col-md-6 col-12">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Image
-            </label>
-            <input
-              type="text"
-              value={inputVal.image}
-              onChange={setData}
-              className="form-control"
-              id="exampleInputEmail1"
-              name="image"
-            />
-          </div> */}
           <div className="mb-3 col-lg-6 col-md-6 col-12">
             <label htmlFor="exampleInputEmail1" className="form-label">
               First Name
@@ -109,7 +118,7 @@ const Register = () => {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" onClick={addUser}>
             Submit
           </button>
         </div>

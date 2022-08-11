@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
+import { NavLink } from "react-router-dom";
+import { Axios } from "axios";
 
 const Home = () => {
+  const [userData, setUserData] = useState("");
+  console.log(userData);
+
+  // useEffect(() => {
+  //   Axios.get("/getdata").then((response) => {
+  //     let data = response;
+  //     console.log(data);
+  //     setUserData(data);
+  //   });
+  // }, []);
+
   return (
     <div className="mt-5">
       <div className="container">
         <div className="add_btn mt-2 mb-2">
-          <button className="btn btn-primary">
+          <NavLink to="/register" className="btn btn-primary">
             <PersonAddAltIcon style={{ paddingRight: 5 }} />
             Add User
-          </button>
+          </NavLink>
         </div>
         <table className="table">
           <thead>
@@ -30,10 +43,10 @@ const Home = () => {
             <tr>
               <th scope="row">1</th>
               {/* <td>image</td> */}
-              <td>Richie</td>
-              <td>Yen</td>
-              <td>richie@example.com</td>
-              <td>0123456789</td>
+              <td>{userData.fisrtName}</td>
+              <td>{userData.lastName}</td>
+              <td>{userData.email}</td>
+              <td>{userData.phone}</td>
               <td className="d-flex justify-content-between">
                 <button className="btn btn-success">
                   <VisibilityIcon />
@@ -51,8 +64,8 @@ const Home = () => {
               {/* <td>image</td> */}
               <td>Richie</td>
               <td>Yen</td>
-              <td>richie@example.com</td>
-              <td>0123456789</td>
+              <td>lichih@test.com</td>
+              <td>2269981332</td>
               <td className="d-flex justify-content-between">
                 <button className="btn btn-success">
                   <VisibilityIcon />
