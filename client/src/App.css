@@ -1,0 +1,18 @@
+.add_btn {
+  text-align: end;
+}
+
+.container {
+  overflow: auto;
+}
+
+.header-title {
+  padding-left: 80px;
+  color: grey;
+}
+
+/* .nav-item {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+} */
