@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardActions";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+import { Axios } from "axios";
 
 const Details = () => {
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    Axios.get("/getuser/:id").then((response) => {
+      let data = response.data;
+      // console.log(data);
+      setUserData(data);
+    });
+  }, []);
+
   return (
     <div className="container mt-4" style={{ alignItems: "center" }}>
-      <h1>Name</h1>
+      <h1>
+        Name: {userData.firstName} {userData.lastName}
+      </h1>
       <Card sx={{ maxWidth: 330 }}>
         <CardContent>
           <div className="content ">

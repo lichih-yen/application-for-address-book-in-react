@@ -41,24 +41,26 @@ const Home = () => {
           <tbody>
             {userData.map((val, key) => {
               return (
-                <tr>
-                  <th scope="row">{parseInt(val.length + 1)}</th>
-                  <td>{val.firstName}</td>
-                  <td>{val.lastName}</td>
-                  <td>{val.email}</td>
-                  <td>{val.phone}</td>
-                  <td className="d-flex justify-content-between">
-                    <button className="btn btn-success">
-                      <VisibilityIcon />
-                    </button>
-                    <button className="btn btn-primary">
-                      <EditIcon />
-                    </button>
-                    <button className="btn btn-danger">
-                      <DeleteIcon />
-                    </button>
-                  </td>
-                </tr>
+                <>
+                  <tr>
+                    <th scope="row">{parseInt(key + 1)}</th>
+                    <td>{val.firstName}</td>
+                    <td>{val.lastName}</td>
+                    <td>{val.email}</td>
+                    <td>{val.phone}</td>
+                    <td className="d-flex justify-content-between">
+                      <button className="btn btn-success">
+                        <VisibilityIcon />
+                      </button>
+                      <button className="btn btn-primary">
+                        <EditIcon />
+                      </button>
+                      <button className="btn btn-danger">
+                        <DeleteIcon />
+                      </button>
+                    </td>
+                  </tr>
+                </>
               );
             })}
           </tbody>

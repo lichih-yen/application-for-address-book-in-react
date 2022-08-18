@@ -17,7 +17,7 @@ const NavBar = () => {
               fontSize: "larger",
             }}
           >
-            WeUsThem Inc.
+            Li-Chih Yen.
           </NavLink>
           <button
             className="navbar-toggler"
