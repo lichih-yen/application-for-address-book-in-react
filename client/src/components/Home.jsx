@@ -49,9 +49,11 @@ const Home = () => {
                     <td>{val.email}</td>
                     <td>{val.phone}</td>
                     <td className="d-flex justify-content-between">
-                      <button className="btn btn-success">
-                        <VisibilityIcon />
-                      </button>
+                      <NavLink to={`details/${val._id}`}>
+                        <button className="btn btn-success">
+                          <VisibilityIcon />
+                        </button>
+                      </NavLink>
                       <button className="btn btn-primary">
                         <EditIcon />
                       </button>
