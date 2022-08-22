@@ -15,9 +15,10 @@ const NavBar = () => {
               textDecoration: "none",
               color: "black",
               fontSize: "larger",
+              marginLeft: "10px",
             }}
           >
-            Li-Chih Yen.
+            XYZ Inc.
           </NavLink>
           <button
             className="navbar-toggler"

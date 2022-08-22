@@ -54,9 +54,11 @@ const Home = () => {
                           <VisibilityIcon />
                         </button>
                       </NavLink>
-                      <button className="btn btn-primary">
-                        <EditIcon />
-                      </button>
+                      <NavLink to={`edit/${val._id}`}>
+                        <button className="btn btn-primary">
+                          <EditIcon />
+                        </button>
+                      </NavLink>
                       <button className="btn btn-danger">
                         <DeleteIcon />
                       </button>

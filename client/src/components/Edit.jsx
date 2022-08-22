@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const Edit = () => {
   // const [image, setImage] = useState();
@@ -24,24 +27,31 @@ const Edit = () => {
     setPhone(value);
   };
 
+  const { id } = useParams();
+  // console.log(id);
+
+  // const history = useHistory();
+
+  useEffect(() => {
+    Axios.get("/getuser/" + id).then((response) => {
+      let data = response.data;
+      setFirstName(data.firstName);
+      setLastName(data.lastName);
+      setEmail(data.email);
+      setPhone(data.phonen);
+    });
+  }, []);
+
+  const userUpdate = async (e) => {
+    e.preventDefault();
+
+    // axios.
+  };
+
   return (
     <div className="container">
-      {/* <NavLink to="/">Home</NavLink> */}
       <form className="mt-4">
         <div className="row">
-          {/* <div className="mb-3 col-lg-6 col-md-6 col-12">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Image
-            </label>
-            <input
-              type="text"
-              value={inputVal.image}
-              onChange={setData}
-              className="form-control"
-              id="exampleInputEmail1"
-              name="image"
-            />
-          </div> */}
           <div className="mb-3 col-lg-6 col-md-6 col-12">
             <label htmlFor="exampleInputEmail1" className="form-label">
               First Name
@@ -110,7 +120,11 @@ const Edit = () => {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            onClick={userUpdate}
+            className="btn btn-primary"
+          >
             Submit
           </button>
         </div>
